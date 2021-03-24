@@ -1,4 +1,19 @@
-.App {
-  font-family: sans-serif;
-  text-align: center;
+h1 {
+  margin: 14px;
+}
+h2,
+h3 {
+  margin: 10px;
+}
+.g-1 {
+  margin: 1px;
+  padding: 1px;
+}
+.g-2 {
+  margin: 2px;
+  padding: 2px;
+}
+.g-3 {
+  margin: 3px;
+  padding: 3px;
 }
