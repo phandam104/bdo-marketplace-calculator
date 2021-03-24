@@ -17,7 +17,7 @@ export const StandardCalculator = () => {
         }}
         validationSchema={Yup.object().shape({
           valuePack: Yup.boolean(),
-          itemPrice: Yup.number()
+          itemPrice: Yup.number("Item Price must be numeric")
             .required("Item Price is required")
             .min(0, "Item Price must be a positive number"),
           quantity: Yup.number()
@@ -66,6 +66,7 @@ export const StandardCalculator = () => {
                   id="item-price-std-calc"
                   aria-describedby="item-price-error-std-calc"
                   className="form-control"
+                  required="required"
                 />
               </div>
               <div className="col-auto">
@@ -87,6 +88,7 @@ export const StandardCalculator = () => {
                   id="quantity-std-calc"
                   aria-describedby="quantity-error-std-calc"
                   className="form-control"
+                  required="required"
                 />
               </div>
               <div className="col-auto">
@@ -95,9 +97,11 @@ export const StandardCalculator = () => {
                 </span>
               </div>
             </div>
-            <button type="submit" className="btn btn-primary">
-              Submit
-            </button>
+            <div className="row g-2">
+              <button type="submit" className="btn btn-primary col-auto">
+                Submit
+              </button>
+            </div>
           </Form>
         )}
       </Formik>
@@ -106,7 +110,9 @@ export const StandardCalculator = () => {
         {Intl.NumberFormat("en-us", {
           currency: "USD",
           style: "currency"
-        }).format(profit)}
+        })
+          .format(profit)
+          .replace(".00", "")}
       </p>
     </>
   );
