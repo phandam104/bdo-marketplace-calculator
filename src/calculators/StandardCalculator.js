@@ -105,15 +105,15 @@ export const StandardCalculator = () => {
           </Form>
         )}
       </Formik>
-      <h2>Profit (in Silver)</h2>
-      <p>
-        {Intl.NumberFormat("en-us", {
-          currency: "USD",
-          style: "currency"
-        })
-          .format(profit)
-          .replace(".00", "")}
-      </p>
+      <div className="card container">
+        <h2>Profit</h2>
+        <p>
+          <span>
+            <i className="fas fa-coins"></i>&nbsp;
+            {Intl.NumberFormat().format(profit)}
+          </span>
+        </p>
+      </div>
     </>
   );
 };
